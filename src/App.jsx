@@ -6,10 +6,12 @@ export function App() {
 
   return (
     <div>
-      <Post />
+      <Post 
+        author = "Author01" 
+        content = "Lorem ipsum dolor sit amet consectetur  dipisicing elit. Deserunt, numquam."
+      />
       <Post />
     </div>
   )
 }
 
-export default App
