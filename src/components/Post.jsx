@@ -19,8 +19,12 @@ export function Post() {
       <div className={styles.content}>
         <p>Boa tarde galera 👋</p>
         <p>Acabei de subir mais um projeto no meu portfólio.</p>
-        <p>👉<a href="">jane.design/doctorcare</a></p>
-        <p><a href="">#novoprojeto #github #porfolio</a></p>
+        <p><a href="">devtechg.github/ignite</a></p>
+        <p>
+          <a href="">#novoprojeto</a>{' '}
+          <a href="">#nlw</a>{' '}
+          <a href="">#rocketseat</a>
+        </p>
       </div>
     </article>
   )
