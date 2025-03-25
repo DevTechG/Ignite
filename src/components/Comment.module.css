@@ -74,7 +74,7 @@
 }
   
 .commentBox footer button:hover{
-    color: var(--white);
+    color: var(--green-300);
 }
 
 .commentBox footer button > span {
