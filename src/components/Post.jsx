@@ -10,6 +10,7 @@ import { useState } from 'react';
 // estado = variáveis que o React irá monitorar sempre por atualizações no valor da variável.
 
 export function Post({ author, publishedAt, content }) {
+  
   const [comments, setComments] = useState([
     'Post muito bacana, hein?!'
   ]);
@@ -35,16 +36,25 @@ export function Post({ author, publishedAt, content }) {
   }
  
   function handleNewCommentChange() {
+    event.target.setCustomValidity('');
     setNewCommentText(event.target.value);
   }
 
+  function handleNewCommentInvalid() {
+    event.target.setCustomValidity('Esse campo é obrigatório!');
+  }
+
   function deleteComment(commentToDelete) {
+    // imutabilidade: as variáveis não sofrem mutação, são criado novos valores na memória (um novo espaço na memória). Ou seja, uma variável não é alterada diretamente onde está na memória.
+
     const commentsWithoutDeletedOne = comments.filter(comment => {
       return comment !== commentToDelete;
     })
 
     setComments(commentsWithoutDeletedOne);
   }
+
+  const isNewCommentEmpty = newCommentText.length === 0;
 
   return (
     <article className={styles.post}>
@@ -84,10 +94,14 @@ export function Post({ author, publishedAt, content }) {
           placeholder="Deixe um comentário"
           value={newCommentText}
           onChange={handleNewCommentChange}
+          onInvalid={handleNewCommentInvalid}
+          required
         />
 
         <footer>
-          <button type="submit">Publicar</button>
+          <button type="submit" disabled={isNewCommentEmpty}>
+             Publicar
+          </button>
         </footer>
       </form>
 
